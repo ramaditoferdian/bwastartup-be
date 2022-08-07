@@ -32,10 +32,12 @@ func main() {
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
 
+	campaignService := campaign.NewService(campaignRepository)
+
 	// TODO: Test Area : START
 
 	// note : code test
-	campaigns, err := campaignRepository.FindAll()
+	campaigns, err := campaignService.FindCampaigns(-1)
 
 	for _, campaign := range campaigns {
 		fmt.Println(campaign.Name)
